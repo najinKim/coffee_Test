@@ -9,5 +9,4 @@ public class ProjectUhdiyaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProjectUhdiyaApplication.class, args);
 	}
-
 }
