@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UHDIYA STORE - 어디야 스토어</title>
+</head>
+<body>
+	<div class="header" th:replace="layout/header :: header"></div>
+	<div th:align="center">
+		<h1>회원 목록</h1>
+		<hr>
+		<table th:align="center" border="1" th:cellpadding="0"
+			th:cellspacing="0" th:width="1000">
+			<tr align="center">
+				<td bgcolor="orange" width="10%">번호</td>
+				<td bgcolor="orange" width="10%">아이디</td>
+				<td bgcolor="orange" width="10%">암호</td>
+				<td bgcolor="orange" width="10%">이름</td>
+				<td bgcolor="orange" width="10%">이메일</td>
+				<td bgcolor="orange" width="10%">가입일자</td>
+			</tr>
+			<tr th:each="member, state:${memberList}">
+				<td th:text="${state.count}"  th:align="center"></td>
+				<td th:text="${member.id}" th:align="center"></td>
+				<td th:text="${member.pwd}" th:align="center"></td>
+				<td th:text="${member.name}" th:align="center"></td>
+				<td th:text="${member.email}" th:align="center"></td>
+				<td th:text="${member.joinDate}" th:align="center"></td>
+			</tr>
+		</table>
+		<h3>
+			<a href="/member/insertForm">회원 가입</a>
+		</h3>
+	</div>
+	<div class="footer" th:replace="layout/footer :: footer"></div>
+</body>
+</html>

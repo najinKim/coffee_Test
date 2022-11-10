@@ -8,15 +8,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
+
+
 <body>
     <div class="header_bar">
         <div class="header_padding">
 
             <div class="first_section">
-                <p id="one">로그인</p>&nbsp;&nbsp;
-                <p id="two">회원가입</p>&nbsp;&nbsp;
+                <p id="one">
+					<a th:if="${session.isLogOn == null}" href="/member/login">로그인</a>
+					<a th:if="${session.isLogOn != null}" href="/member/logout">로그아웃</a>
+                </p>&nbsp;&nbsp;
+                
+                <p id="two">
+                	<a th:if="${session.isLogOn == null}" href="/member/insertForm">회원가입</a>
+					<a th:if="${session.isLogOn != null}" href="/member/modMember">정보수정</a>
+                </p>&nbsp;&nbsp;
                 <p>장바구니</p>&nbsp;&nbsp;
-                <p>마이페이지</p>&nbsp;&nbsp;
+                <p><a href="/member/memberList">마이페이지</a></p>&nbsp;&nbsp;
                 <div class="second_section">
                     <a href="#"><img src="../img/top_sns01.gif"></a>
                     <a href="#"><img src="../img/top_sns02.gif"></a>
@@ -33,7 +42,7 @@
         </div>
 
         <div class="input_rogo">
-            <span class="sizecontroll">UHDIYA COFFEE</span>
+            <span class="sizecontroll"><a href="/">UHDIYA COFFEE</a></span>
         </div>
 
         <div class="himg">
@@ -43,7 +52,7 @@
     </div>
 
     <div class="categori">
-        <span><a href="#">About</span></a>&nbsp;
+        <span><a href="/about">About</span></a>&nbsp;
         <span><a href="#">쇼핑</span></a>&nbsp;
         <span><a href="#">커피</span></a>&nbsp;
         <span><a href="#">스틱커피</span></a>&nbsp;

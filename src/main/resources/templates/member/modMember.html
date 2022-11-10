@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UHDIYA STORE - 어디야 스토어</title>
+
+</head>
+<body>
+	<div class="header" th:replace="layout/header :: header"></div>
+	<div th:align="center">
+		<h1>회원정보 수정</h1>
+		<hr>
+		<form name="frm" th:method="post"  >
+			<table border="1" th:cellpadding="0" th:cellspacing="0"
+				th:align="center">
+				<tr>
+					<td bgcolor="orange" th:text="아이디" width="20%" th:align="center"></td>
+					<td width="40%">
+						<input type="text" name="id" size="50" th:value="${memberDTO.id}" readonly="readonly" >
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="orange" th:text="암호" width="20%" th:align="center"></td>
+					<td width="40%">
+						<input type="password" name="pwd" size="50" th:value="${memberDTO.pwd}">
+						<span th:text="${valid_pwd}"></span>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="orange" th:text="이름" width="20%" th:align="center"></td>
+					<td>
+						<input type="text" name="name" size="50" th:value="${memberDTO.name}">
+						<span th:text="${valid_name}"></span>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="orange" th:text="이메일" width="20%" th:align="center"></td>
+					<td>
+						<input type="email" name="email" size="50" th:value="${memberDTO.email}">
+						<span th:text="${valid_email}"></span>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" th:align="center">
+					
+					<button th:formaction="@{modMember}" th:method="post" >
+					수정하기
+					</button>
+					
+					
+					</td>
+			</table>
+		</form>
+	</div>
+	<div class="footer" th:replace="layout/footer :: footer"></div>
+</body>
+</html>

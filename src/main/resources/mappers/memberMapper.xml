@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper	namespace="mapper.member">
+	<select id="memberList" resultType="com.spring.uhdiya.member.dto.MemberDTO">
+		<![CDATA[
+			select * from t_member order by joinDate desc
+		]]>
+	</select>
+	
+	<insert id="insertMember" parameterType="com.spring.uhdiya.member.dto.MemberDTO">
+		<![CDATA[
+			insert into t_member values(#{id}, #{pwd}, #{name}, #{email}, sysdate)
+		]]>
+	</insert>
+	<select id="loginById"	parameterType="com.spring.uhdiya.member.dto.MemberDTO" resultType="com.spring.uhdiya.member.dto.MemberDTO">
+		<![CDATA[
+			select * from t_member where id=#{id} and pwd=#{pwd}
+		]]>
+	</select>
+	
+	<update id="updateMember" parameterType="com.spring.uhdiya.member.dto.MemberDTO">
+		<![CDATA[
+			update t_member set pwd=#{pwd}, name=#{name}, email=#{email} where id=#{id}
+		]]>
+	</update>
+	
+	<select id="selectMemberById" resultType="com.spring.uhdiya.member.dto.MemberDTO" parameterType="com.spring.uhdiya.member.dto.MemberDTO">
+		<![CDATA[
+			select * from t_member where id=#{id}
+		]]>
+	</select>
+	
+	
+</mapper>
